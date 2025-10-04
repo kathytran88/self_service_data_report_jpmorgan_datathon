@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OHFF</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <button id="theme-toggle">Toggle Dark Mode</button>
+  <div class="container">
+    <header>
+      <h1>Of home family and future</h1>
+      <p>Project by Team 9 • <a href="https://github.com/kathytran88/health_care_analytics" target="_blank">View Code on GitHub</a></p>
+    </header>
+
+    <section class="controls controls-row pretty">
+      <div class="control-inline">
+        <label for="region-select" class="lbl">Region (required)</label>
+        <select id="region-select" class="select">
+          <option value="">Select a region…</option>
+        </select>
+      </div>
+
+      <div class="control-inline grow">
+        <div class="lbl-row">
+          <span class="lbl">Metrics</span>
+          <div class="metric-actions">
+            <button id="select-all" type="button">Select all</button>
+            <button id="clear-all" type="button">Clear</button>
+            <button id="targets-btn" type="button">Targets & Actions</button>
+          </div>
+        </div>
+        <div id="metrics-container" class="metrics-chips"></div>
+      </div>
+
+      <div class="control-inline">
+        <button id="apply-btn" class="btn" disabled>Apply</button>
+      </div>
+
+      <div class="control-inline">
+        <button id="reload-btn" class="link-btn">Reload Data</button>
+      </div>
+    </section>
+
+    <section id="kpis" class="kpis"></section>
+    <section id="charts" class="charts-grid"></section>
+
+    <section id="actions" class="actions">
+      <div class="actions-header">
+        <h2>Action Recommendations</h2>
+        <div class="actions-controls">
+          <button id="export-actions-pdf" class="btn">Export PDF</button>
+        </div>
+      </div>
+      <div id="action-cards" class="action-cards"></div>
+    </section>
+  </div>
+
+  <div id="targets-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Targets & Settings</h3>
+        <button id="targets-close" class="icon-btn">&times;</button>
+      </div>
+      <div class="targets-form-head">
+        <span>Metric</span>
+        <span>Target</span>
+        <span>Goal</span>
+        <span>Unit (label)</span>
+      </div>
+      <div id="targets-form" class="targets-form"></div>
+      <div class="modal-footer">
+        <button id="targets-save" class="btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

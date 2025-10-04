@@ -1,0 +1,91 @@
+* { margin: 0; padding: 0; box-sizing: border-box }
+body { font-family: Arial, sans-serif; line-height: 1.6; background: #f9f9f9; color: #333 }
+.container { max-width: 1200px; margin: auto; padding: 20px }
+header { text-align: center; margin-bottom: 30px }
+header h1 { font-size: 2em }
+a { color: #0066cc }
+a:hover { opacity: .85 }
+#theme-toggle { position: fixed; top: 20px; right: 20px; padding: 8px 12px; cursor: pointer; background: #fff; border: 1px solid #ccc; border-radius: 8px }
+
+.controls-row.pretty { display: grid; grid-template-columns: 260px 1fr auto auto; gap: 12px; align-items: end; background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; margin-bottom: 18px }
+.control-inline { display: flex; flex-direction: column; gap: 6px }
+.control-inline.grow { flex: 1 }
+.lbl { font-weight: 700; font-size: .95rem; color: #222 }
+.lbl-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px }
+.select, .btn { height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid #d5d5d5; background: #f7f7f7 }
+.btn { cursor: pointer; font-weight: 600 }
+.btn:disabled { opacity: .6; cursor: not-allowed }
+.link-btn { background: transparent; border: none; color: #0066cc; cursor: pointer; padding: 0 6px; height: 40px }
+.link-btn:hover { text-decoration: underline }
+.metric-actions button { height: 28px; padding: 0 10px; border: 1px solid #ddd; border-radius: 999px; background: #fafafa; cursor: pointer; font-size: .85rem }
+.metric-actions button + button { margin-left: 6px }
+.metrics-chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center }
+.metric-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 999px; background: #fff; user-select: none; font-size: .92rem; line-height: 1; cursor: pointer; transition: box-shadow .15s, background .15s, border-color .15s }
+.metric-chip:hover { box-shadow: 0 1px 4px rgba(0,0,0,.06) }
+.metric-chip input { display: none }
+.metric-chip .tick { width: 18px; height: 18px; border: 2px solid #bbb; border-radius: 4px; display: inline-block; position: relative; flex: 0 0 auto; background: #fff }
+.metric-chip.active { border-color: #2c6bed; background: #eef4ff }
+.metric-chip.active .tick { border-color: #2c6bed; background: #2c6bed }
+.metric-chip.active .tick::after { content: ""; position: absolute; left: 4px; top: 0px; width: 6px; height: 12px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) }
+
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px }
+.kpi { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 16px }
+.kpi h3 { font-size: .95rem; font-weight: 600; margin-bottom: 6px }
+.kpi .sub { font-size: .85rem; color: #666; margin-top: 2px }
+.kpi .value { font-size: 2rem; font-weight: 700 }
+.gap-badge { margin-top: 6px; display: inline-block; padding: 4px 8px; border-radius: 999px; border: 1px solid #ddd; font-size: .85rem }
+.gap-neg { background: #ffe9e9; border-color: #f5bcbc; color: #b10000 }
+.gap-pos { background: #e9ffef; border-color: #b7efc6; color: #0b7328 }
+
+.charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px }
+.chart-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 12px; height: 340px; display: flex; flex-direction: column }
+.chart-card h4 { margin-bottom: 8px; font-size: 1rem }
+.chart-card canvas { flex: 1; min-height: 260px }
+
+.actions { margin-top: 24px }
+.actions-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px }
+.action-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px }
+.action-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px }
+.action-head { display: flex; justify-content: space-between; align-items: baseline }
+.action-title { font-weight: 700 }
+.action-meta { font-size: .9rem; color: #666 }
+.action-gap { display: inline-block; padding: 4px 8px; border-radius: 999px; border: 1px solid #ddd; font-size: .85rem }
+.action-bad { background: #ffe9e9; border-color: #f5bcbc; color: #b10000 }
+.action-good { background: #e9ffef; border-color: #b7efc6; color: #0b7328 }
+.action-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap }
+.action-num { width: 120px; padding: 8px; border: 1px solid #ccc; border-radius: 8px }
+.action-chip { padding: 4px 10px; border: 1px solid #ddd; border-radius: 999px; font-size: .85rem }
+.action-list { padding-left: 18px }
+.action-list li { margin: 4px 0 }
+
+.modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4); padding: 20px; z-index: 100 }
+.modal.hidden { display: none }
+.modal-content { background: #fff; border-radius: 12px; max-width: 820px; width: 100%; padding: 16px; border: 1px solid #e5e5e5 }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px }
+.icon-btn { background: transparent; border: none; font-size: 1.6rem; cursor: pointer; line-height: 1 }
+.targets-form-head { font-weight: 700; display: grid; grid-template-columns: 1.5fr 140px 160px 160px; gap: 10px; padding: 6px 0 }
+.targets-form { display: grid; grid-template-columns: 1.5fr 140px 160px 160px; gap: 10px; align-items: center }
+.t-row { display: contents }
+.t-label { font-weight: 600 }
+.t-input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 8px }
+.t-select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 8px }
+.modal-footer { display: flex; justify-content: flex-end; margin-top: 12px }
+
+body.dark { background: #222; color: #ddd }
+body.dark a { color: #66aaff }
+body.dark #theme-toggle { background: #333; color: #ddd; border-color: #555 }
+body.dark .controls-row.pretty, body.dark .kpi, body.dark .chart-card, body.dark .action-card, body.dark .modal-content { background: #2a2a2a; border-color: #444 }
+body.dark .metrics-chips .metric-chip { background: #252525; border-color: #3d3d3d }
+body.dark .metric-chip.active { background: #1f2b44; border-color: #2c6bed }
+body.dark .kpi .sub { color: #aaa }
+body.dark .t-input, body.dark .t-select { background: #222; border-color: #555; color: #ddd }
+
+@media (max-width: 1000px) {
+  .controls-row.pretty { grid-template-columns: 1fr }
+  .kpis { grid-template-columns: repeat(2, 1fr) }
+  .charts-grid { grid-template-columns: 1fr }
+  .action-cards { grid-template-columns: 1fr }
+}
+@media (max-width: 576px) {
+  .kpis { grid-template-columns: 1fr }
+}
